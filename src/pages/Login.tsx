@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () =>{
     return(
-        <div className="container">
+        <div className="container" style={{height:"100vh"}}>
             <div className="row">
                 <div className="col">
                     <div className="login card sm-5">
