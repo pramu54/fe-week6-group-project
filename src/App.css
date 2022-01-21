@@ -1,5 +1,9 @@
-*{
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;900&family=Poppins&family=Roboto:wght@700&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 nav{
@@ -37,4 +41,17 @@ nav{
     display: flex;
     align-items: center;
   }
+}
+
+.Footer{
+  text-align: center;
+}
+
+.login{
+  top: 20vh
+}
+
+.cbody{
+  margin-left: 35px;
+  margin-right: 35px;
 }
