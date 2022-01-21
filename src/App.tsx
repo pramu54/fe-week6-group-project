@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Footer from './components/Footer';
+import Store from './pages/Store';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <div style={{height:"10vh"}}></div>
       <Home />
+      <Store />
        <Login/>
       <Footer />
     </div>
