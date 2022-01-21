@@ -5,7 +5,6 @@
 	margin: 0;
 	box-sizing: border-box;
 }
-
 nav{
   display: none;
 }
@@ -32,6 +31,18 @@ nav{
 }
 .dropdown p{
   margin: .5em;
+}
+.HomeCard{
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+}
+.imageHolder img{
+  border-radius: 8px 8px 0 0;
+}
+.Header{
+  height:10vh;
+  background-color: white;
+  border-bottom: mediumturquoise 1px solid;
 }
 @media only screen and (min-width: 768px) {
   .burger{
