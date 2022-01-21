@@ -43,6 +43,7 @@ nav{
   height:10vh;
   background-color: white;
   border-bottom: mediumturquoise 1px solid;
+  z-index:1;
 }
 @media only screen and (min-width: 768px) {
   .burger{
