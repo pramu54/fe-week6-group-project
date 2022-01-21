@@ -39,7 +39,11 @@ nav{
 .imageHolder img{
   border-radius: 8px 8px 0 0;
 }
-
+.Header{
+  height:10vh;
+  background-color: white;
+  border-bottom: mediumturquoise 1px solid;
+}
 @media only screen and (min-width: 768px) {
   .burger{
     display: none;
