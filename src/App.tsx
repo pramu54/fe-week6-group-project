@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import Store from './pages/Store';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <div style={{height:"10vh"}}></div>
       <Home />
       <Store />
-       <Login/>
+      <Login/>
+      <Register/>
       <Footer />
     </div>
   );

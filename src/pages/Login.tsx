@@ -25,7 +25,7 @@ const Login = () =>{
                                 </div>
                                 <div className="row md-3">
                                     <div className="col-md-11">
-                                        <button type="submit" className="btn btn-primary" style={{width:"100%"}}>Login</button>
+                                        <button type="submit" className="btn btn-info" style={{width:"100%"}}>Login</button>
                                     </div>
                                 </div>
                                 <br/>
