@@ -11,7 +11,10 @@ const Register = () => {
                         <img src={placeholder}></img>     
                     </div>
                     <div className="row">
-                        <button type="button" className="btn btn-info">Browse</button>  
+                        {/* <button type="button" className="btn btn-info">Browse</button>   */}
+                        <div className="mb-3">
+                            <input className="form-control" type="file" id="profileImage"/>
+                        </div>
                     </div>
                 </div>
                 <form className="flex-grow-1">

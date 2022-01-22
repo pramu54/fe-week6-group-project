@@ -10,6 +10,7 @@ import Cart from './pages/Cart';
 import Profile from './pages/Profile';
 import History from './pages/History';
 import Detail from './pages/Detail';
+import Addproduct from './pages/Addproduct';
 
 
 function App() {
