@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Profile/>
+      <Cart />
       <Footer />
     </div>
   );

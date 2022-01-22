@@ -55,6 +55,7 @@ function Store() {
         <div className="Store container">
             <div className='d-flex justify-content-between p-5'>
                 <h2>My Cart</h2>
+                <button className='btn btn-primary'>See History</button>
             </div>
             <div className='row flex-row-reverse'>
                 <div className='container col-md-4 '>
