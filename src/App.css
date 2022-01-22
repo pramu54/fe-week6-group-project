@@ -34,11 +34,15 @@ nav{
 }
 .HomeCard{
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .storeCard{
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.CartCard{
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .storeCard .imageHolder img{
   border-radius: 8px 0 0 8px;
@@ -51,6 +55,11 @@ nav{
   background-color: white;
   border-bottom: mediumturquoise 1px solid;
   z-index:1;
+}
+.Summary{
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height:18em;
 }
 @media only screen and (min-width: 768px) {
   .burger{

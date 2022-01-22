@@ -9,8 +9,8 @@ interface Props {
 function HomeCard(props: Props) {
     return (
         <div className="col-md-3 p-3 d-flex justify-content-center">
-            <div className='HomeCard'>
-            <div className='imageHolder' style={{ width: "250px", height: "300px" }}>
+            <div className='HomeCard mx-5'>
+            <div className='imageHolder' style={{ width: "200px", height: "250px" }}>
                 <img src={props.image} className='w-100 h-100' />
             </div>
             <div className='d-flex justify-content-between px-2'>

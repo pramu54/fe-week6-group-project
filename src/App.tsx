@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Footer from './components/Footer';
 import Store from './pages/Store';
 import Register from './pages/Register';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <div style={{height:"10vh"}}></div>
       <Home />
+      <Cart />
       <Store />
       <Login/>
       <Register/>
