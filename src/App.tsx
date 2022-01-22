@@ -9,13 +9,16 @@ import Register from './pages/Register';
 import Cart from './pages/Cart';
 import Profile from './pages/Profile';
 import History from './pages/History';
+import Detail from './pages/Detail';
 
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <History />
+      
+      <div style={{height:"10vh"}}></div>
+      <Detail />
       <Footer />
     </div>
   );
