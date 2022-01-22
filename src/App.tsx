@@ -11,6 +11,7 @@ import Profile from './pages/Profile';
 import History from './pages/History';
 import Detail from './pages/Detail';
 import Addproduct from './pages/Addproduct';
+import Order from './pages/Order';
 
 
 function App() {
@@ -18,8 +19,9 @@ function App() {
     <div className="App">
       <Header />
       
-      <div style={{height:"10vh"}}></div>
-      <Detail />
+      {/* <div style={{height:"10vh"}}></div>
+      <Detail /> */}
+      <Order/>
       <Footer />
     </div>
   );
