@@ -8,12 +8,14 @@ import Store from './pages/Store';
 import Register from './pages/Register';
 import Cart from './pages/Cart';
 import Profile from './pages/Profile';
+import History from './pages/History';
+
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Cart />
+      <History />
       <Footer />
     </div>
   );

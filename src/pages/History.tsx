@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import CartCard from '../components/CartCard';
+import HistoryCard from '../components/HistoryCard';
 
-function Cart() {
+function History() {
     //DUMMY PRODUCT
     const [totalProduct, setTotalProduct] = useState<number>(0)
     const [totalQty, setTotalQty] = useState<number>(0)
@@ -53,36 +53,32 @@ function Cart() {
 
     return (
         <div className="Store container">
-            <div className='d-flex justify-content-between p-5'>
-                <h2>My Cart</h2>
-                <button className='btn btn-primary'>See History</button>
-            </div>
-            <div className='row flex-row-reverse'>
-                <div className='container col-md-4 '>
-                    <div className='Summary d-flex flex-column align-items-center pt-3'>
-                        <h3 className='pb-2'>Summary</h3>
-                        <p>Quantity:</p>
-                        <p>{totalQty} item</p>
-                        <p>Total Price</p>
-                        <p>Rp.{totalProduct}</p>
-                        <button className='btn btn-success'>Order</button>
+            <div className='justify-content-between p-5 row'>
+                <h2 className='col-md-8'>My History</h2>
+                <div className='col-md-4'>
+                    <div className='d-flex justify-content-between'>
+                    <p>Quantity:</p>
+                    <p>{totalQty} item</p>
+                    </div>
+                    <div className='d-flex justify-content-between'>
+                    <p>Total Price:</p>
+                    <p>Rp{totalProduct}</p>
                     </div>
                 </div>
-                <div className='col-md-8'>
+            </div>
+            <div className='row flex-row-reverse'>
                     {product.map((item: any) => (
-                        <CartCard
+                        <HistoryCard
                             image={item.image}
                             title={item.title}
                             price={item.price}
                             qty={item.Qty}
-                            increaseQty={() => increaseQtyHandle()}
-                            decreaseQty={() => decreaseQtyHandle()}
+                            date="16 Januari 2022"
                         />
                     ))}
-                </div>
             </div>
         </div>
     );
 }
 
-export default Cart;
+export default History;
