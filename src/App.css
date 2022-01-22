@@ -83,3 +83,8 @@ nav{
   margin-left: 35px;
   margin-right: 35px;
 }
+
+.profile, .register{
+  padding-top: 15vh;
+  padding-bottom: 10vh;
+}

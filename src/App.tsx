@@ -7,17 +7,13 @@ import Footer from './components/Footer';
 import Store from './pages/Store';
 import Register from './pages/Register';
 import Cart from './pages/Cart';
+import Profile from './pages/Profile';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <div style={{height:"10vh"}}></div>
-      <Home />
-      <Cart />
-      <Store />
-      <Login/>
-      <Register/>
+      <Profile/>
       <Footer />
     </div>
   );

@@ -3,10 +3,9 @@ import placeholder from "../assets/imgPlaceholder.svg"
 
 const Register = () => {
     return(
-        <div className="container" style={{height:"100vh"}}>
+        <div className="register container">
             <h1>Register</h1>
             <div className="d-md-flex flex-row-reverse">
-                {/* <input type="email" placeholder="Dua" className="p-2" id="inputEmail3"/> */}
                 <div className="text-center">
                     <div className="row">
                         <img src={placeholder}></img>     
