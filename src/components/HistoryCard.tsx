@@ -18,13 +18,13 @@ function HistoryCard(props: Props) {
                 </div>
                 <div className='p-3 d-flex flex-column justify-content-between'>
                     <div>
-                        <p className='m-0' style={{ fontSize: "12px", color:"gray" }}>{props.date}</p>
+                        <p className='m-0' style={{ fontSize: "12px", color: "gray" }}>{props.date}</p>
                         <p className='m-0' style={{ fontSize: "18px" }}>{props.title}</p>
                         <p className='m-0' style={{ fontSize: "12px" }}>Rp.{props.price}</p>
                         <div style={{ fontSize: "12px" }} className='d-flex align-items-center'>
                             <p className='pt-3 px-1'>Qty: {props.qty}</p>
                         </div>
-                        <p>SubTotal: {props.qty*props.price}</p>
+                        <p>SubTotal: {props.qty * props.price}</p>
                     </div>
                     <div className='p-3'>
                         <button className='btn btn-danger mx-1'>Remove</button>

@@ -16,17 +16,17 @@ function Header() {
                     <div className='profileRound mx-3'></div>
                     <div className='pt-3 px-3' style={{ color: "mediumturquoise" }}><p>login</p></div>
                 </nav>
-                <div onClick={()=>burgerHandle()} className='burger'>
+                <div onClick={() => burgerHandle()} className='burger'>
                     <div className='line'></div>
                     <div className='line'></div>
                     <div className='line'></div>
                 </div>
             </div>
-            <div className='dropdown' style={{display: dropDown ? "block" : "none"}}>
+            <div className='dropdown' style={{ display: dropDown ? "block" : "none" }}>
                 <p>My Profile</p>
                 <p>My Store</p>
                 <p>My Cart</p>
-                <p><span style={{color:"red"}}>Logout</span></p>
+                <p><span style={{ color: "red" }}>Logout</span></p>
             </div>
         </div>
     );

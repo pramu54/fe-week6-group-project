@@ -57,25 +57,25 @@ function History() {
                 <h2 className='col-md-8'>My History</h2>
                 <div className='col-md-4'>
                     <div className='d-flex justify-content-between'>
-                    <p>Quantity:</p>
-                    <p>{totalQty} item</p>
+                        <p>Quantity:</p>
+                        <p>{totalQty} item</p>
                     </div>
                     <div className='d-flex justify-content-between'>
-                    <p>Total Price:</p>
-                    <p>Rp{totalProduct}</p>
+                        <p>Total Price:</p>
+                        <p>Rp{totalProduct}</p>
                     </div>
                 </div>
             </div>
             <div className='row flex-row-reverse'>
-                    {product.map((item: any) => (
-                        <HistoryCard
-                            image={item.image}
-                            title={item.title}
-                            price={item.price}
-                            qty={item.Qty}
-                            date="16 Januari 2022"
-                        />
-                    ))}
+                {product.map((item: any) => (
+                    <HistoryCard
+                        image={item.image}
+                        title={item.title}
+                        price={item.price}
+                        qty={item.Qty}
+                        date="16 Januari 2022"
+                    />
+                ))}
             </div>
         </div>
     );
