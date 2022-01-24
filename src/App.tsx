@@ -21,7 +21,7 @@ function App() {
       
       {/* <div style={{height:"10vh"}}></div>
       <Detail /> */}
-      <Order/>
+      <Addproduct/>
       <Footer />
     </div>
   );
