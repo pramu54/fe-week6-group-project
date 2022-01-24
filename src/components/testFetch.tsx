@@ -29,10 +29,10 @@ function Test() {
         }
         axios
             .post("http://108.136.240.34:80/products", { 
-                id: 2,
-                id_user: 7,
+                id: 23,
+                id_user: 1,
                 id_product_category: 1,
-                name: "Samsung A7",
+                name: "Samsung A6",
                 price: 1000000,
                 qty: 3,
                 description: "HP samsung baru",
@@ -72,8 +72,8 @@ function Test() {
     const regisHandle = ()=>{
         axios
             .post(" http://108.136.240.34:80/users", { 
-                name: "sirclo25",
-                username: "sirclo026",
+                name: "sirclo0",
+                username: "sircloo",
                 email: "example@sirclo.com",
                 password: "sirclo123",
                 born_date: "12/12/1997",

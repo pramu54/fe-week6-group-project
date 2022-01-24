@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import StoreCard from '../components/StoreCard';
 
@@ -8,23 +8,41 @@ function Store() {
   const navigate = useNavigate()
 
   useEffect(() => {
-      fetchData()
+    fetchData()
   }, [])
 
   const fetchData = () => {
-      axios
-          .get("http://108.136.240.34:80/products?uid=7")
-          .then((res) => {
-              console.log(res);
-              setProduct(res.data)
-          })
-          .catch((err) => {
-              console.log(err)
-          })
+    axios
+      .get(`/products?uid=${localStorage.getItem("id")}`)
+      .then((res) => {
+        console.log(res);
+        setProduct(res.data.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
-  console.log(product)
-  console.log(product.data)
+  const editHandle = (item: any) => {
+    console.log(item)
+  }
+
+  const deleteHandle = (item:any)=>{
+    let config = {
+        headers:
+        {"Authorization":`Bearer ${localStorage.getItem("loginToken")}`}
+    }
+    axios
+        .delete(`http://108.136.240.34:80/products/${item.id}`,config
+         )
+        .then((res) => {
+            console.log(res);
+            fetchData();
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}
 
   return (
     <div className="Store container">
@@ -35,9 +53,11 @@ function Store() {
       <div className='row'>
         {product.map((item: any) => (
           <StoreCard
-            image={item.image}
-            title={item.title}
-            price={item.price} />
+            image={item.url_photo}
+            title={item.name}
+            price={item.price}
+            editClick={() => editHandle(item)}
+            deleteClick={() => deleteHandle(item)} />
         ))}
       </div>
     </div>

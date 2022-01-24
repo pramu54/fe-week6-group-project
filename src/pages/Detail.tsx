@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function Detail() {
     const [detail, setDetail] = useState<any>([])
@@ -12,7 +12,7 @@ function Detail() {
 
     const fetchData = () => {
         axios
-            .get(`http://108.136.240.34:80/products/${params.id}`)
+            .get(`/products/${params.id}`)
             .then((res) => {
                 console.log(res);
                 setDetail(res.data.data)
@@ -25,7 +25,7 @@ function Detail() {
     return (
         <div className="Detail container">
             <div className='row justify-content-center'>
-            <div style={{height:"20vh"}}></div>
+                <div style={{ height: "20vh" }}></div>
                 <div className='col-md-6 d-flex justify-content-end'>
                     <div className='imageHolder' style={{ width: "300px", height: "300px" }}>
                         <img src={detail.url_photo} className='w-100 h-100' style={{ borderRadius: "12px" }} />

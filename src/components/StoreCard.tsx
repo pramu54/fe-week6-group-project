@@ -4,6 +4,8 @@ interface Props {
     image: string
     title: string
     price: string
+    editClick: any
+    deleteClick: any
 }
 
 function StoreCard(props: Props) {
@@ -20,8 +22,8 @@ function StoreCard(props: Props) {
                         <p className='m-0' style={{ fontSize: "24px" }}>Rp.{props.price}</p>
                     </div>
                     <div className='p-3'>
-                        <button className='btn btn-primary mx-1'>Edit</button>
-                        <button className='btn btn-danger mx-1'>Remove</button>
+                        <button className='btn btn-primary mx-1' onClick={props.editClick}>Edit</button>
+                        <button className='btn btn-danger mx-1' onClick={props.deleteClick}>Remove</button>
                     </div>
                 </div>
             </div>
