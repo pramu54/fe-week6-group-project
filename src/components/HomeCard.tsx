@@ -4,12 +4,13 @@ interface Props {
     image: string
     title: string
     price: number
+    clickCard?: any
 }
 
 function HomeCard(props: Props) {
     return (
         <div className="col-md-3 p-3 d-flex justify-content-center">
-            <div className='HomeCard mx-5'>
+            <div className='HomeCard mx-5' onClick={props.clickCard}>
                 <div className='imageHolder' style={{ width: "200px", height: "250px" }}>
                     <img src={props.image} className='w-100 h-100' />
                 </div>

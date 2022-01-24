@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import HomeCard from '../components/HomeCard';
 
 function Home() {
     //DUMMY PRODUCT
     const [product, setProduct] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetchData()
@@ -42,7 +44,8 @@ function Home() {
                         <HomeCard
                             image={item.url_photo}
                             title={item.name}
-                            price={item.price} />
+                            price={item.price}
+                            clickCard={()=>navigate(`/product/${item.id}`)} />
                     ))}
                 </div>
             </div>

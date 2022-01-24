@@ -23,6 +23,7 @@ const Rute = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
+                    <Route path="product/:id" element={<Detail />} />
                     <Route element={<ProtectedRoute />}>
                         <Route path="profile" element={<Profile />} />
                         <Route path="store" element={<Store />} />
@@ -31,7 +32,6 @@ const Rute = () => {
                         <Route path="order" element={<Order />} />
                         <Route path="history" element={<History />} />
                     </Route>
-                    <Route path="detail" element={<Detail />} />
                 </Route>
             </Routes>
         </BrowserRouter>
