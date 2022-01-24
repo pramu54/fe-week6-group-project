@@ -117,8 +117,7 @@ function Test() {
                         <HomeCard
                             image={item.url_photo}
                             title={item.name}
-                            price={item.price}
-                            siu={()=>deleteHandle(item)} />
+                            price={item.price} />
                     ))}
      
     </div>
