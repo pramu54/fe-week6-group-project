@@ -14,7 +14,7 @@ function Home() {
 
     const fetchData = () => {
         axios
-            .get("http://108.136.240.34:80/products")
+            .get("/products")
             .then((res) => {
                 console.log(res);
                 setProduct(res.data.data)

@@ -12,6 +12,7 @@ import Profile from '../pages/Profile';
 import Addproduct from '../pages/Addproduct';
 import Detail from '../pages/Detail';
 import ProtectedRoute from './ProtectedRoute';
+import Editproduct from '../pages/Editproduct';
 
 
 
@@ -32,6 +33,7 @@ const Rute = () => {
                         <Route path="cart" element={<Cart />} />
                         <Route path="order" element={<Order />} />
                         <Route path="history" element={<History />} />
+                        <Route path="editproduct/:id" element={<Editproduct />} />
                     </Route>
                 </Route>
             </Routes>

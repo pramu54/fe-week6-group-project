@@ -25,9 +25,6 @@ const fetchData = () => {
         })
 }
 
-const editHandle = ()=>{
-  console.log(product)
-}
 
 const deleteHandle = (item:any)=>{
   axios
@@ -56,7 +53,7 @@ if(product!==null){
             image={item.url_photo}
             title={item.name}
             price={item.price}
-            edit={()=>editHandle()}
+            edit={()=>navigate(`/editproduct/${item.id}`)}
             delete={()=>deleteHandle(item)} />
         ))}
       </div>

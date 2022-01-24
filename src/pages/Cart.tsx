@@ -19,8 +19,7 @@ function Cart() {
             .get("/cart")
             .then((res) => {
                 console.log(res);
-                setProduct(res.data.data)
-                console.log(product)
+                setProduct(res.data)
             })
             .catch((err) => {
                 console.log(err)
@@ -47,7 +46,7 @@ function Cart() {
     const increaseQtyHandle = (item:any) => {
         let inc = item.quantity + 1
         axios
-        .put(`cart/${item.id}`, {quantity: inc})
+        .put(`/cart/${item.id}`, {quantity: inc})
         .then((res) => {
             console.log(res);
             fetchData()
@@ -61,7 +60,7 @@ function Cart() {
         let dec = item.quantity - 1
         if(dec>=0){
             axios
-            .put(`cart/${item.id}`, {quantity: dec})
+            .put(`/cart/${item.id}`, {quantity: dec})
             .then((res) => {
                 console.log(res);
                 fetchData()
