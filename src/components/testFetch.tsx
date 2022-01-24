@@ -72,10 +72,10 @@ function Test() {
     const regisHandle = ()=>{
         axios
             .post(" http://108.136.240.34:80/users", { 
-                name: "sirclo25",
-                username: "sirclo026",
+                name: "sircle",
+                username: "sircley",
                 email: "example@sirclo.com",
-                password: "sirclo123",
+                password: "sircle123",
                 born_date: "12/12/1997",
                 gender: "male",
                 url_photo: "www.iniphoto_png.com"
