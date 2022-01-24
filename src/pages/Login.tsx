@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () =>{
+    let navigate = useNavigate();
     const [input, setInput] = useState({
         username: "",
         password: ""
@@ -27,14 +29,15 @@ const Login = () =>{
             let token = e.data.token;
             let id = e.data.user_id;
             
-            // localStorage.setItem("id", input.username)
-            localStorage.setItem("token", token);
+            localStorage.setItem("loginToken", token);
+            localStorage.setItem("isAuthenticated", "true");
             localStorage.setItem("id", JSON.stringify(id));
+            navigate("/");
             
         }).catch((e) => {
             alert(e);
         })
-        //localStorage.clear()
+        // localStorage.clear()
     };
 
     console.log(input)
@@ -72,7 +75,7 @@ const Login = () =>{
                                 <br/>
                                 <div className="row md-3">
                                     <div className="col" style={{textAlign: "center"}}>
-                                        <span>Don't have an account? <a href="#">Register</a></span>
+                                        <span>Don't have an account? <a onClick={()=>navigate("/login")}>Register</a></span>
                                     </div>
                                 </div>
                                 

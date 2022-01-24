@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import placeholder from "../assets/imgPlaceholder.svg"
 
 const Register = () => {
+    let navigate = useNavigate();
     const [input, setInput] = useState({
         name: "",
         username: "",
@@ -121,7 +123,7 @@ const Register = () => {
                     <br/>
                     <div className="row md-3">
                         <div className="col" style={{textAlign: "center"}}>
-                            <span>Already have an account? <a href="#">Login</a></span>
+                            <span>Already have an account? <a onClick={()=>navigate("/login")}>Login</a></span>
                         </div>
                     </div>
                 </form>
