@@ -11,7 +11,7 @@ function Test() {
 
     const fetchData = () => {
         axios
-            .get("http://108.136.240.34:80/products")
+            .get("http://108.136.240.34:80/cart")
             .then((res) => {
                 console.log(res);
                 setData(res.data.data)
