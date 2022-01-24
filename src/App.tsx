@@ -1,19 +1,20 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
-import Home from './pages/Home';
 import Footer from './components/Footer';
+import Test from './components/testFetch';
+
+
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <div style={{height:"10vh"}}></div>
-      <Home />
-      <div style={{height:"100vh"}}></div>
+      <Outlet />
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
