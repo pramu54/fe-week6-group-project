@@ -7,6 +7,7 @@ interface Props {
     qty: number
     increaseQty: any
     decreaseQty: any
+    deleteClick: any
 }
 
 function CartCard(props: Props) {
@@ -31,7 +32,7 @@ function CartCard(props: Props) {
                         <p>SubTotal: {props.qty * props.price}</p>
                     </div>
                     <div className='p-3'>
-                        <button className='btn btn-danger mx-1'>Remove</button>
+                        <button className='btn btn-danger mx-1' onClick={props.deleteClick}>Remove</button>
                     </div>
                 </div>
             </div>

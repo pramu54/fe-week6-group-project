@@ -6,9 +6,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 
-//axios.defaults.baseURL="http://108.136.240.34:80";
-//axios.defaults.headers.common["Authorization"]=
-  //`Bearer ${localStorage.getItem("token")}`;
+axios.defaults.baseURL="http://108.136.240.34:80";
+axios.defaults.headers.common["Authorization"]=
+  `Bearer ${localStorage.getItem("loginToken")}`;
 
 ReactDOM.render(
   <React.StrictMode>

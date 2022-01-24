@@ -69,6 +69,7 @@ function History() {
             <div className='row flex-row-reverse'>
                 {product.map((item: any) => (
                     <HistoryCard
+                        key={item.id}
                         image={item.image}
                         title={item.title}
                         price={item.price}

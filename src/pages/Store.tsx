@@ -23,40 +23,34 @@ function Store() {
       })
   }
 
-  const editHandle = (item: any) => {
-    console.log(item)
-  }
 
   const deleteHandle = (item:any)=>{
-    let config = {
-        headers:
-        {"Authorization":`Bearer ${localStorage.getItem("loginToken")}`}
-    }
-    axios
-        .delete(`http://108.136.240.34:80/products/${item.id}`,config
-         )
-        .then((res) => {
-            console.log(res);
-            fetchData();
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+  axios
+      .delete(`/products/${item.id}`,
+       )
+      .then((res) => {
+          console.log(res);
+          fetchData();
+      })
+      .catch((err) => {
+          console.log(err)
+      })
 }
 
   return (
     <div className="Store container">
       <div className='d-flex justify-content-between p-5'>
         <h2>My Store</h2>
-        <button className='btn btn-success btn-lg'>Add Product</button>
+        <button className='btn btn-success btn-lg' onClick={()=>navigate('/addproduct')}>Add Product</button>
       </div>
       <div className='row'>
         {product.map((item: any) => (
           <StoreCard
+            key={item.id}
             image={item.url_photo}
             title={item.name}
             price={item.price}
-            editClick={() => editHandle(item)}
+            editClick={() => navigate(`store/${item.id}`)}
             deleteClick={() => deleteHandle(item)} />
         ))}
       </div>

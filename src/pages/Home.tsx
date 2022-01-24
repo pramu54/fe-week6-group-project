@@ -24,7 +24,20 @@ function Home() {
             })
     }
 
-
+    const addCartHandle = (item:any) => {
+        axios
+            .post("/cart", {
+                id_product: item.id,
+                quantity: 1
+              })
+              .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+ 
     return (
         <div className="Home">
             <div style={{ height: "10vh" }}></div>
@@ -42,10 +55,12 @@ function Home() {
                 <div className='Product row'>
                     {product.map((item: any) => (
                         <HomeCard
+                            key={item.id}
                             image={item.url_photo}
                             title={item.name}
                             price={item.price}
-                            clickCard={() => navigate(`/product/${item.id}`)} />
+                            clickCard={() => navigate(`/product/${item.id}`)}
+                            addCart={()=>addCartHandle(item)} />
                     ))}
                 </div>
             </div>
