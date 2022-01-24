@@ -3,7 +3,8 @@ import React from 'react';
 interface Props {
     image: string
     title: string
-    price: string
+    price: number
+    siu?: any
 }
 
 function HomeCard(props: Props) {
@@ -21,6 +22,7 @@ function HomeCard(props: Props) {
                     <button className='btn btn-success btn-sm h-50 m-2'>Add to Cart</button>
                 </div>
             </div>
+            {/*<button className='btn btn-danger' onClick={props.siu}>RDelete</button>*/}
         </div>
     );
 }
