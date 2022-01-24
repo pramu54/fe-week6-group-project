@@ -11,10 +11,10 @@ function Test() {
 
     const fetchData = () => {
         axios
-            .get("http://108.136.240.34:80/productcategory")
+            .get("http://108.136.240.34:80/products")
             .then((res) => {
                 console.log(res);
-                setData(res.data)
+                setData(res.data.data)
             })
             .catch((err) => {
                 console.log(err)
