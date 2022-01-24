@@ -29,15 +29,13 @@ function Test() {
         }
         axios
             .post("http://108.136.240.34:80/products", { 
-                id: 23,
-                id_user: 1,
-                id_product_category: 1,
-                name: "Samsung A6",
-                price: 1000000,
-                qty: 3,
-                description: "HP samsung baru",
-                url_photo: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80"
-              }, config)
+                "id_product_category": 2,
+    "name": "Samsung A8",
+  "description": "HP samsung baru",
+  "price": 10000,
+  "quantity": 4,
+  "url_photo": "example.jpg"
+                }, config)
             .then((res) => {
                 console.log(res);
                 fetchData();

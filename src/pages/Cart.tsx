@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import CartCard from '../components/CartCard';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
     //DUMMY PRODUCT
     const [totalProduct, setTotalProduct] = useState<number>(0)
     const [totalQty, setTotalQty] = useState<number>(0)
     const [product, setProduct] = useState<any>([])
-    
+    const navigate = useNavigate()
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -86,7 +88,7 @@ function Cart() {
                 <div style={{height:"10vh"}}></div>
                 <div className='d-flex justify-content-between p-5'>
                     <h2>My Cart</h2>
-                    <button className='btn btn-primary'>See History</button>
+                    <button className='btn btn-primary' onClick={()=>navigate("/history")}>See History</button>
                 </div>
                 <div className='row flex-row-reverse'>
                     <div className='container col-md-4 '>
@@ -96,7 +98,7 @@ function Cart() {
                             <p>{totalQty} item</p>
                             <p>Total Price</p>
                             <p>Rp.{totalProduct}</p>
-                            <button className='btn btn-success'>Order</button>
+                            <button className='btn btn-success' onClick={()=>navigate("/order")}>Order</button>
                         </div>
                     </div>
                     <div className='col-md-8'>
@@ -122,7 +124,7 @@ function Cart() {
             <div style={{height:"10vh"}}></div>
                 <div className='d-flex justify-content-between p-5'>
                     <h2>My Cart</h2>
-                    <button className='btn btn-primary'>See History</button>
+                    <button className='btn btn-primary' onClick={()=>navigate("/history")}>See History</button>
                 </div>
                 <div className='row flex-row-reverse'>
                     <div className='container col-md-4 '>
@@ -132,7 +134,7 @@ function Cart() {
                             <p>{totalQty} item</p>
                             <p>Total Price</p>
                             <p>Rp.{totalProduct}</p>
-                            <button className='btn btn-success'>Order</button>
+                            <button className='btn btn-success' onClick={()=>navigate("/order")}>Order</button>
                         </div>
                     </div>
                     <div className='col-md-8'>
