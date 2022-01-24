@@ -10,6 +10,7 @@ function Header() {
     const logoutHandle = ()=>{
         localStorage.removeItem("loginToken")
         localStorage.removeItem("isAuthenticated")
+        localStorage.removeItem("id")
         window.location.reload();
     }
     
