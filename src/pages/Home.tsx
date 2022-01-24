@@ -1,42 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import HomeCard from '../components/HomeCard';
 
 function Home() {
     //DUMMY PRODUCT
-    const [product, setProduct] = useState([
-        {
-            image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
-            title: 'Lazy Chair', price: '135.000'
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80',
-            title: 'Cool Cap', price: '82.500'
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
-            title: 'Lazy Chair', price: '135.000'
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80',
-            title: 'Cool Cap', price: '82.500'
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
-            title: 'Lazy Chair', price: '135.000'
-        },
-    ])
+    const [product, setProduct] = useState([])
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const fetchData = () => {
+        axios
+            .get("http://108.136.240.34:80/products")
+            .then((res) => {
+                console.log(res);
+                setProduct(res.data.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
     return (
         <div className="Home">
+            <div style={{height:"10vh"}}></div>
             <div className='Category'>
                 <div className='banner d-flex justify-content-evenly py-1' style={{ backgroundColor: "mediumturquoise", color: "white", fontSize: "smaller" }}>
-                    <p className='p-0 m-0'>Category</p>
-                    <p className='p-0 m-0'>Category</p>
-                    <p className='p-0 m-0'>Category</p>
-                    <p className='p-0 m-0'>Category</p>
-                    <p className='p-0 m-0'>Category</p>
+                    <p className='p-0 m-0'>Books</p>
+                    <p className='p-0 m-0'>Computer</p>
+                    <p className='p-0 m-0'>Kitchen</p>
+                    <p className='p-0 m-0'>Gadget</p>
+                    <p className='p-0 m-0'>Style</p>
                 </div>
             </div>
+            <div className='d-flex justify-content-center my-5' style={{color:"mediumturquoise", fontFamily:"Georgia"}}><h1>Welcome to Missclo</h1></div>
             <div className='container mt-5'>
                 <div className='Product row'>
                     {product.map((item: any) => (

@@ -14,6 +14,7 @@ import Detail from '../pages/Detail';
 import ProtectedRoute from './ProtectedRoute';
 
 
+
 const Rute = () => {
     return (
 
