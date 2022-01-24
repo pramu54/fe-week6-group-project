@@ -5,6 +5,7 @@ interface Props {
     title: string
     price: number
     clickCard?: any
+    addCart?: any
 }
 
 function HomeCard(props: Props) {
@@ -19,7 +20,7 @@ function HomeCard(props: Props) {
                         <p>{props.title}</p>
                         <p>Rp.{props.price}</p>
                     </div>
-                    <button className='btn btn-success btn-sm h-50 m-2'>Add to Cart</button>
+                    <button className='btn btn-success btn-sm h-50 m-2' onClick={props.addCart}>Add to Cart</button>
                 </div>
             </div>
         </div>
