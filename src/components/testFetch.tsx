@@ -29,10 +29,10 @@ function Test() {
         }
         axios
             .post("http://108.136.240.34:80/products", { 
-                id: 23,
-                id_user: 1,
+                id: 2,
+                id_user: 7,
                 id_product_category: 1,
-                name: "Samsung A6",
+                name: "Samsung A7",
                 price: 1000000,
                 qty: 3,
                 description: "HP samsung baru",
