@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import placeholder from "../assets/imgPlaceholder.svg"
 
@@ -14,6 +14,20 @@ const Register = () => {
         gender: "",
         url_photo: "https://pbs.twimg.com/profile_images/1305491092918292485/q6p8QmUl_400x400.jpg"
     });
+    const [selectedFile, setSelectedFile] = useState<any>([]);
+
+    const handleInputChange = (event:any) => {
+        let files = event.target.files;
+        let reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+ 
+        reader.onload = (e) => {
+             
+            setSelectedFile(e.target!.result)
+        }
+ 
+    }
+    
 
     const onSubmit = (values: any) => {
         //values.preventDefault()
@@ -39,6 +53,7 @@ const Register = () => {
                 gender: "",
                 url_photo: "https://pbs.twimg.com/profile_images/1305491092918292485/q6p8QmUl_400x400.jpg"
             });
+            navigate("/login");
         }).catch((e) => {
             alert(e)
         })
@@ -52,9 +67,6 @@ const Register = () => {
         setInput({ ...input, [name] : value})
     }
 
-    console.log(input);
-    
-
     return(
         <div className="register container">
             <h1>Register</h1>
@@ -66,7 +78,7 @@ const Register = () => {
                     <div className="row">
                         {/* <button type="button" className="btn btn-info">Browse</button>   */}
                         <div className="mb-3">
-                            <input className="form-control" type="file" accept=".png" id="profileImage"/>
+                            <input className="form-control" type="file" id="profileImage" onChange={handleInputChange}/>
                         </div>
                     </div>
                 </div>
