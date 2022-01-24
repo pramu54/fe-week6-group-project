@@ -1,46 +1,82 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import StoreCard from '../components/StoreCard';
+import { useNavigate } from 'react-router-dom';
 
 function Store() {
   //DUMMY PRODUCT
-  const [product, setProduct] = useState([
-    {
-      image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
-      title: 'Lazy Chair', price: '135.000'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80',
-      title: 'Cool Cap', price: '82.500'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
-      title: 'Lazy Chair', price: '135.000'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80',
-      title: 'Cool Cap', price: '82.500'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
-      title: 'Lazy Chair', price: '135.000'
-    },
-  ])
+  const [product, setProduct] = useState<any>([])
+  const idFromLocalStorage = localStorage.getItem("id")
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    fetchData()
+}, [])
+
+const fetchData = () => {
+    axios
+        .get(`/products?uid=${idFromLocalStorage}`)
+        .then((res) => {
+            console.log(res);
+            setProduct(res.data.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}
+
+const editHandle = ()=>{
+  console.log(product)
+}
+
+const deleteHandle = (item:any)=>{
+  axios
+  .delete(`/products/${item.id}`)
+  .then((res) => {
+    console.log(res);
+    fetchData()
+})
+.catch((err) => {
+    console.log(err)
+})
+}
+
+if(product!==null){
   return (
     <div className="Store container">
+      <div style={{height:"10vh"}}></div>
       <div className='d-flex justify-content-between p-5'>
         <h2>My Store</h2>
-        <button className='btn btn-success btn-lg'>Add Product</button>
+        <button className='btn btn-success btn-lg' onClick={()=>navigate("/allproduct")}>Add Product</button>
       </div>
       <div className='row'>
-        {product.map((item: any) => (
+      {product.map((item: any) => (
           <StoreCard
-            image={item.image}
-            title={item.title}
-            price={item.price} />
+          key={item.id}
+            image={item.url_photo}
+            title={item.name}
+            price={item.price}
+            edit={()=>editHandle()}
+            delete={()=>deleteHandle(item)} />
         ))}
       </div>
     </div>
   );
+}else{
+  return (
+    <div className="Store container">
+      <div style={{height:"10vh"}}></div>
+      <div className='d-flex justify-content-between p-5'>
+        <h2>My Store</h2>
+        <button className='btn btn-success btn-lg' onClick={()=>navigate("/allproduct")}>Add Product</button>
+      </div>
+      <div className='row'>
+        <div style={{height:"70vh"}}></div>
+      </div>
+    </div>
+  );
+}
+  
 }
 
 export default Store;

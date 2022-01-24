@@ -54,6 +54,7 @@ function Home() {
                 <div className='Product row'>
                 {product.map((item: any) => (
                         <HomeCard
+                            key={item.id}
                             image={item.url_photo}
                             title={item.name}
                             price={item.price}
