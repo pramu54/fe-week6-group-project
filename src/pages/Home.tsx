@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import HomeCard from '../components/HomeCard';
 
 function Home() {
     //DUMMY PRODUCT
     const [product, setProduct] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetchData()
@@ -22,6 +24,7 @@ function Home() {
             })
     }
 
+
     return (
         <div className="Home">
             <div style={{height:"10vh"}}></div>
@@ -34,14 +37,15 @@ function Home() {
                     <p className='p-0 m-0'>Style</p>
                 </div>
             </div>
-            <div className='d-flex justify-content-center my-5' style={{color:"mediumturquoise", fontFamily:"Georgia"}}><h1>Welcome to Missclo</h1></div>
+            <div className='d-flex justify-content-center my-5' style={{fontFamily:"Georgia", color:"mediumturquoise"}}><h1>Welcome to MISSCLO</h1></div>
             <div className='container mt-5'>
                 <div className='Product row'>
-                    {product.map((item: any) => (
+                {product.map((item: any) => (
                         <HomeCard
-                            image={item.image}
-                            title={item.title}
-                            price={item.price} />
+                            image={item.url_photo}
+                            title={item.name}
+                            price={item.price}
+                            clickCard={()=>navigate(`/product/${item.id}`)} />
                     ))}
                 </div>
             </div>
