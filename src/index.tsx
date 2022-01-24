@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Rute from './route/Route';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
@@ -11,7 +12,7 @@ axios.defaults.headers.common["Authorization"]=
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Rute />
   </React.StrictMode>,
   document.getElementById('root')
 );
