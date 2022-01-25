@@ -87,7 +87,7 @@ const Editproduct = () => {
                     <div className="text-center">
                         <div className="row">
                             <div className='imageHolder' style={{ width: "300px", height: "300px" }}>
-                                <img src={placeholder} className='w-100 h-100' style={{ borderRadius: "12px" }} />
+                                <img src={input.url_photo} className='w-100 h-100' style={{ borderRadius: "12px" }} />
                             </div>
                         </div>
                         {/* <div className="row">

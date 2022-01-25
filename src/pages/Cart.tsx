@@ -32,15 +32,6 @@ function Cart() {
 
     let countPrc = 0;
     useEffect(() => {
-<<<<<<< HEAD
-        if (product !== null) {
-            product.map((item: any) => {
-                let subPrc = item.Product.price * item.quantity;
-                countPrc += subPrc;
-                setTotalProduct(countPrc)
-            })
-        }
-=======
         if(product!==null){
         product.map((item: any) => {
             let subPrc = item.Product.price * item.quantity;
@@ -48,19 +39,10 @@ function Cart() {
             setTotalProduct(countPrc)
         })}
         setPrice(countPrc)
->>>>>>> 4ad78ed143b14f4295acd590fa77a1822489c3fd
     }, [product])
 
     let countQty = 0;
     useEffect(() => {
-<<<<<<< HEAD
-        if (product !== null) {
-            product.map((item: any) => {
-                countQty += item.quantity;
-                setTotalQty(countQty)
-            })
-        }
-=======
         if(product!==null){
         product.map((item: any) => {
             countQty += item.quantity;
@@ -68,7 +50,6 @@ function Cart() {
             
         })}
         setQuantity(countQty)
->>>>>>> 4ad78ed143b14f4295acd590fa77a1822489c3fd
     }, [product])
 
     const increaseQtyHandle = (item: any) => {
