@@ -68,6 +68,7 @@ if(product!==null){
         <button className='btn btn-success btn-lg' onClick={()=>navigate("/addproduct")}>Add Product</button>
       </div>
       <div className='row'>
+        <h1>You don't have any product yet</h1>
         <div style={{height:"70vh"}}></div>
       </div>
     </div>
