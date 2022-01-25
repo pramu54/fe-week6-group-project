@@ -6,13 +6,14 @@ interface Props {
     price: number
     qty: number
     date: string
+    stat: string
 }
 
 function HistoryCard(props: Props) {
     return (
 
         <div className=" col-md-6 p-3 d-flex justify-content-center">
-            <div className="CartCard d-flex w-100">
+            <div className="CartCard d-flex w-100" style={{opacity:"70%"}}>
                 <div className='imageHolder' style={{ width: "250px", height: "300px" }}>
                     <img className="w-100 h-100" src={props.image} />
                 </div>
@@ -27,7 +28,7 @@ function HistoryCard(props: Props) {
                         <p>SubTotal: {props.qty * props.price}</p>
                     </div>
                     <div className='p-3'>
-                        <button className='btn btn-danger mx-1'>Remove</button>
+                        <p className='mx-1' style={{color: props.stat==="DONE"?"green":"red", fontWeight: "bold"}}>{props.stat}</p>
                     </div>
                 </div>
             </div>

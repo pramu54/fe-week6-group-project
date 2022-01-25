@@ -30,7 +30,7 @@ function Test() {
         axios
             .post("http://108.136.240.34:80/products", { 
                 "id_product_category": 2,
-    "name": "Samsung A8",
+    "name": "Simsang A8",
   "description": "HP samsung baru",
   "price": 10000,
   "quantity": 4,

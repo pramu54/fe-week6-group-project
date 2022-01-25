@@ -22,6 +22,21 @@ function Detail() {
             })
     }
 
+    const addCartHandle = () => {
+        axios
+            .post("/cart", {
+                id_product: detail.id,
+                quantity: 1
+              })
+              .then((res) => {
+                console.log(res);
+                alert("product added to cart")
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
     return (
         <div className="Detail container">
             <div className='row justify-content-center'>
@@ -38,7 +53,7 @@ function Detail() {
                 </div>
             </div>
             <div className=' mt-3 mb-5 d-flex justify-content-center'>
-                <button className='btn btn-success btn-lg'>Add to Cart</button>
+                <button className='btn btn-success btn-lg' onClick={()=>addCartHandle()}>Add to Cart</button>
             </div>
         </div>
     );

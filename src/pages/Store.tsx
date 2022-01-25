@@ -44,7 +44,7 @@ if(product!==null){
       <div style={{height:"10vh"}}></div>
       <div className='d-flex justify-content-between p-5'>
         <h2>My Store</h2>
-        <button className='btn btn-success btn-lg' onClick={()=>navigate("/allproduct")}>Add Product</button>
+        <button className='btn btn-success btn-lg' onClick={()=>navigate("/addproduct")}>Add Product</button>
       </div>
       <div className='row'>
       {product.map((item: any) => (
@@ -65,9 +65,10 @@ if(product!==null){
       <div style={{height:"10vh"}}></div>
       <div className='d-flex justify-content-between p-5'>
         <h2>My Store</h2>
-        <button className='btn btn-success btn-lg' onClick={()=>navigate("/allproduct")}>Add Product</button>
+        <button className='btn btn-success btn-lg' onClick={()=>navigate("/addproduct")}>Add Product</button>
       </div>
       <div className='row'>
+        <h1>You don't have any product yet</h1>
         <div style={{height:"70vh"}}></div>
       </div>
     </div>
