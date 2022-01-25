@@ -25,22 +25,24 @@ function Cart() {
                 console.log(err)
             })
     }
-
+    
     let countPrc = 0;
     useEffect(() => {
+        if(product!==null){
         product.map((item: any) => {
             let subPrc = item.Product.price * item.quantity;
             countPrc += subPrc;
             setTotalProduct(countPrc)
-        })
+        })}
     }, [product])
 
     let countQty = 0;
     useEffect(() => {
+        if(product!==null){
         product.map((item: any) => {
             countQty += item.quantity;
             setTotalQty(countQty)
-        })
+        })}
     }, [product])
 
     const increaseQtyHandle = (item:any) => {
@@ -137,6 +139,7 @@ function Cart() {
                         </div>
                     </div>
                     <div className='col-md-8'>
+                        <h1>You don't have any product on your cart</h1>
                         <div style={{height:"70vh"}}></div>
                     </div>
                 </div>
