@@ -72,7 +72,7 @@ const Order = () =>{
         }).then((e) => {
             alert("Order Berhasil !")
             console.log(e)
-            //navigate("/login");
+            navigate("/");
         }).catch((e) => {
             alert(e)
         })

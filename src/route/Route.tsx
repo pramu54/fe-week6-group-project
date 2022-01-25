@@ -16,6 +16,7 @@ import { PriceContext } from '../context/priceContext';
 import { QuantityContext } from '../context/quantityContext';
 import Editproduct from '../pages/Editproduct';
 import Editprofile from '../pages/Editprofile';
+import OrderList from '../pages/OrderList';
 
 
 
@@ -40,6 +41,7 @@ const Rute = () => {
                         <Route path="addproduct" element={<Addproduct />} />
                             <Route path="cart" element={<Cart />} />
                             <Route path="order" element={<Order />} />
+                            <Route path="orderlist" element={<OrderList />} />
                         <Route path="history" element={<History />} />
                         <Route path="editproduct/:id" element={<Editproduct />} />
                     </Route>
