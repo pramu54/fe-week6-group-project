@@ -7,8 +7,8 @@ import { QuantityContext } from '../context/quantityContext';
 
 function Cart() {
     //DUMMY PRODUCT
-    const {quantity, setQuantity} = useContext(QuantityContext)
-    const {price, setPrice} = useContext(PriceContext);
+    const {setQuantity} = useContext(QuantityContext)
+    const {setPrice} = useContext(PriceContext);
     const [totalProduct, setTotalProduct] = useState<number>(0)
     const [totalQty, setTotalQty] = useState<number>(0)
     const [product, setProduct] = useState<any>([])
@@ -36,7 +36,9 @@ function Cart() {
         product.map((item: any) => {
             let subPrc = item.Product.price * item.quantity;
             countPrc += subPrc;
+            return(
             setTotalProduct(countPrc)
+            )
         })}
         setPrice(countPrc)
     }, [product])
@@ -46,8 +48,9 @@ function Cart() {
         if(product!==null){
         product.map((item: any) => {
             countQty += item.quantity;
+            return(
             setTotalQty(countQty)
-            
+            )
         })}
         setQuantity(countQty)
     }, [product])

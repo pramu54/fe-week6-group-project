@@ -11,7 +11,7 @@ function Store() {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, ['fetchData'])
 
   const fetchData = () => {
     axios

@@ -13,7 +13,7 @@ function HomeCard(props: Props) {
         <div className="col-md-3 p-3 d-flex justify-content-center">
             <div className='HomeCard mx-5' onClick={props.clickCard}>
                 <div className='imageHolder' style={{ width: "200px", height: "250px" }}>
-                    <img src={props.image} className='w-100 h-100' />
+                    <img src={props.image} className='w-100 h-100' alt="product image"/>
                 </div>
                 <div className='d-flex justify-content-between px-2'>
                     <div className='homeInfo text-left mt-2' style={{ font: "18px" }}>

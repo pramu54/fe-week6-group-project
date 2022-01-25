@@ -8,11 +8,11 @@ function Detail() {
 
     useEffect(() => {
         fetchData()
-    }, [])
+    }, ['fetchData'])
 
     const fetchData = () => {
         axios
-            .get(`http://108.136.240.34:80/products/${params.id}`)
+            .get(`/products/${params.id}`)
             .then((res) => {
                 console.log(res);
                 setDetail(res.data.data)
@@ -43,7 +43,7 @@ function Detail() {
                 <div style={{ height: "20vh" }}></div>
                 <div className='col-md-6 d-flex justify-content-end'>
                     <div className='imageHolder' style={{ width: "300px", height: "300px" }}>
-                        <img src={detail.url_photo} className='w-100 h-100' style={{ borderRadius: "12px" }} />
+                        <img src={detail.url_photo} className='w-100 h-100' style={{ borderRadius: "12px" }} alt='product image'/>
                     </div>
                 </div>
                 <div className='col-md-6'>

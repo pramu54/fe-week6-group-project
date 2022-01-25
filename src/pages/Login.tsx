@@ -75,7 +75,7 @@ const Login = () =>{
                                 <br/>
                                 <div className="row md-3">
                                     <div className="col" style={{textAlign: "center"}}>
-                                        <span>Don't have an account? <a onClick={()=>navigate("/register")}>Register</a></span>
+                                        <span>Don't have an account? <p onClick={()=>navigate("/register")}>Register</p></span>
                                     </div>
                                 </div>
                                 

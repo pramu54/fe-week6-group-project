@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import placeholder from "../assets/imgPlaceholder.svg"
 
 const Addproduct = () => {
     const navigate = useNavigate()
@@ -78,15 +77,9 @@ const Addproduct = () => {
                     <div className="text-center">
                         <div className="row">
                             <div className='imageHolder' style={{ width: "300px", height: "300px" }}>
-                                <img src={input.url_photo} className='w-100 h-100' style={{ borderRadius: "12px" }} />
+                                <img src={input.url_photo} className='w-100 h-100' style={{ borderRadius: "12px" }} alt="product image"/>
                             </div>
                         </div>
-                        {/* <div className="row">
-                            <div className="mb-3">
-                                <label htmlFor="productImage" className="form-label">Choose Product Image</label>
-                                <input className="form-control" type="file" id="productImage"/>
-                            </div>
-                        </div> */}
                     </div>
                 </div>
                 <div className='col-md-6'>
