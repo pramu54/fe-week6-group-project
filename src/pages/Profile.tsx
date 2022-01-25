@@ -32,7 +32,7 @@ const Profile = () => {
             <div className="d-md-flex flex-row-reverse">
                 <div className="text-center">
                     <div className="row">   
-                        <img src={profile.url_photo} style={{width:"200px", height:"200px"}} alt="profile image"></img>     
+                        <img src={profile.url_photo} style={{width:"200px", height:"200px"}} alt="profile"></img>     
                     </div>
                 </div>
                 <form className="flex-grow-1">
