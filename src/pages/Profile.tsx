@@ -31,8 +31,8 @@ const Profile = () => {
             <h1>Profile</h1>
             <div className="d-md-flex flex-row-reverse">
                 <div className="text-center">
-                    <div className="row">
-                        <img src={profile.url_photo} alt="profile image"></img>     
+                    <div className="row">   
+                        <img src={profile.url_photo} style={{width:"200px", height:"200px"}} alt="profile image"></img>     
                     </div>
                 </div>
                 <form className="flex-grow-1">
@@ -70,6 +70,9 @@ const Profile = () => {
                     <div className="row md-3">
                         <div className="col-md-11">
                             <button type="submit" className="btn btn-info" style={{width:"100%"}} onClick={()=>navigate("/")}>Return to Home</button>
+                        </div>
+                        <div className="col-md-11">
+                            <button className="btn btn-info mt-2" style={{width:"100%"}} onClick={()=>navigate("/editprofile")}>Edit Profile</button>
                         </div>
                     </div>
                 </form>
