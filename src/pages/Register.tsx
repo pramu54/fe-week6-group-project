@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import placeholder from "../assets/imgPlaceholder.svg"
 
@@ -14,19 +14,6 @@ const Register = () => {
         gender: "",
         url_photo: ""
     });
-    const [selectedFile, setSelectedFile] = useState<any>([]);
-
-    const handleInputChange = (event:any) => {
-        let files = event.target.files;
-        let reader = new FileReader();
-        reader.readAsDataURL(files[0]);
- 
-        reader.onload = (e) => {
-             
-            setSelectedFile(e.target!.result)
-        }
- 
-    }
     
 
     const onSubmit = (values: any) => {
@@ -141,7 +128,7 @@ const Register = () => {
                     <br/>
                     <div className="row md-3">
                         <div className="col" style={{textAlign: "center"}}>
-                            <span>Already have an account? <a onClick={()=>navigate("/login")}>Login</a></span>
+                            <span>Already have an account? <p onClick={()=>navigate("/login")}>Login</p></span>
                         </div>
                     </div>
                 </form>

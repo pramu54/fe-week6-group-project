@@ -1,14 +1,13 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { PriceContext } from "../context/priceContext";
 import { QuantityContext } from "../context/quantityContext";
 
 const Order = () =>{
-    const {price, setPrice} = useContext(PriceContext);
-    const {quantity, setQuantity} = useContext(QuantityContext);
+    const {price} = useContext(PriceContext);
+    const {quantity} = useContext(QuantityContext);
     let navigate = useNavigate();
-    let params = useParams();
     const [address, setAddress] = useState({
         street: "",
         city: "",

@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import placeholder from "../assets/imgPlaceholder.svg"
 
 const Editproduct = () => {
     const [input, setInput] = useState({
@@ -17,7 +16,7 @@ const Editproduct = () => {
 
     useEffect(() => {
         fetchData()
-    }, [])
+    }, ['fetchData'])
 
     const fetchData = () => {
         axios
@@ -87,7 +86,7 @@ const Editproduct = () => {
                     <div className="text-center">
                         <div className="row">
                             <div className='imageHolder' style={{ width: "300px", height: "300px" }}>
-                                <img src={input.url_photo} className='w-100 h-100' style={{ borderRadius: "12px" }} />
+                                <img src={input.url_photo} className='w-100 h-100' style={{ borderRadius: "12px" }} alt="product image"/>
                             </div>
                         </div>
                         {/* <div className="row">

@@ -16,7 +16,7 @@ function CartCard(props: Props) {
         <div className="p-3 d-flex justify-content-center">
             <div className="CartCard d-flex w-100">
                 <div className='imageHolder' style={{ width: "250px", height: "300px" }}>
-                    <img className="w-100 h-100" src={props.image} />
+                    <img className="w-100 h-100" src={props.image} alt="product image"/>
                 </div>
                 <div className='p-3 d-flex flex-column justify-content-between'>
                     <div>

@@ -29,14 +29,18 @@ function History() {
     useEffect(() => {
         product.map((item: any) => {
             countPrc += item.price;
+            return(
             setTotalProduct(countPrc)
+            )
         })
     }, [])
     let countQty = 0;
     useEffect(() => {
         product.map((item: any) => {
             countQty += item.Qty;
+            return(
             setTotalQty(countQty)
+            )
         })
     }, [])
     if (product !== null) {

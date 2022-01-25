@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import placeholder from "../assets/imgPlaceholder.svg"
 
 const Profile = () => {
     let navigate = useNavigate()
@@ -32,8 +31,8 @@ const Profile = () => {
             <h1>Profile</h1>
             <div className="d-md-flex flex-row-reverse">
                 <div className="text-center">
-                    <div className="row">
-                        <img src={profile.url_photo} style={{width:"200px", height:"200px"}}></img>     
+                    <div className="row">   
+                        <img src={profile.url_photo} style={{width:"200px", height:"200px"}} alt="profile image"></img>     
                     </div>
                 </div>
                 <form className="flex-grow-1">
