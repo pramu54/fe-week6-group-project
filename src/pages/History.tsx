@@ -6,7 +6,7 @@ function History() {
     //DUMMY PRODUCT
     const [totalProduct, setTotalProduct] = useState<number>(0)
     const [totalQty, setTotalQty] = useState<number>(0)
-    const [stat, setStat] = useState("DONE")
+    const [stat, setStat] = useState<string>("DONE")
     const [product, setProduct] = useState([])
 
     useEffect(() => {
