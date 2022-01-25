@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CartCard from '../components/CartCard';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { PriceContext } from '../context/priceContext';
+import { QuantityContext } from '../context/quantityContext';
 
 function Cart() {
     //DUMMY PRODUCT
+    const {quantity, setQuantity} = useContext(QuantityContext)
+    const {price, setPrice} = useContext(PriceContext);
     const [totalProduct, setTotalProduct] = useState<number>(0)
     const [totalQty, setTotalQty] = useState<number>(0)
     const [product, setProduct] = useState<any>([])
@@ -28,6 +32,7 @@ function Cart() {
 
     let countPrc = 0;
     useEffect(() => {
+<<<<<<< HEAD
         if (product !== null) {
             product.map((item: any) => {
                 let subPrc = item.Product.price * item.quantity;
@@ -35,16 +40,35 @@ function Cart() {
                 setTotalProduct(countPrc)
             })
         }
+=======
+        if(product!==null){
+        product.map((item: any) => {
+            let subPrc = item.Product.price * item.quantity;
+            countPrc += subPrc;
+            setTotalProduct(countPrc)
+        })}
+        setPrice(countPrc)
+>>>>>>> 4ad78ed143b14f4295acd590fa77a1822489c3fd
     }, [product])
 
     let countQty = 0;
     useEffect(() => {
+<<<<<<< HEAD
         if (product !== null) {
             product.map((item: any) => {
                 countQty += item.quantity;
                 setTotalQty(countQty)
             })
         }
+=======
+        if(product!==null){
+        product.map((item: any) => {
+            countQty += item.quantity;
+            setTotalQty(countQty)
+            
+        })}
+        setQuantity(countQty)
+>>>>>>> 4ad78ed143b14f4295acd590fa77a1822489c3fd
     }, [product])
 
     const increaseQtyHandle = (item: any) => {

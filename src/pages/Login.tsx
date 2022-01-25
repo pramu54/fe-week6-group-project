@@ -32,7 +32,7 @@ const Login = () =>{
             localStorage.setItem("loginToken", token);
             localStorage.setItem("isAuthenticated", "true");
             localStorage.setItem("id", JSON.stringify(id));
-            navigate("/");
+            navigate("/profile");
             
         }).catch((e) => {
             alert(e);
@@ -75,7 +75,7 @@ const Login = () =>{
                                 <br/>
                                 <div className="row md-3">
                                     <div className="col" style={{textAlign: "center"}}>
-                                        <span>Don't have an account? <a onClick={()=>navigate("/login")}>Register</a></span>
+                                        <span>Don't have an account? <a onClick={()=>navigate("/register")}>Register</a></span>
                                     </div>
                                 </div>
                                 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import placeholder from "../assets/imgPlaceholder.svg"
 
@@ -12,8 +12,22 @@ const Register = () => {
         password: "",
         born_date: "",
         gender: "",
-        url_photo: "https://pbs.twimg.com/profile_images/1305491092918292485/q6p8QmUl_400x400.jpg"
+        url_photo: ""
     });
+    const [selectedFile, setSelectedFile] = useState<any>([]);
+
+    const handleInputChange = (event:any) => {
+        let files = event.target.files;
+        let reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+ 
+        reader.onload = (e) => {
+             
+            setSelectedFile(e.target!.result)
+        }
+ 
+    }
+    
 
     const onSubmit = (values: any) => {
         //values.preventDefault()
@@ -37,8 +51,9 @@ const Register = () => {
                 password: "",
                 born_date: "",
                 gender: "",
-                url_photo: "https://pbs.twimg.com/profile_images/1305491092918292485/q6p8QmUl_400x400.jpg"
+                url_photo: ""
             });
+            navigate("/login");
         }).catch((e) => {
             alert(e)
         })
@@ -52,9 +67,6 @@ const Register = () => {
         setInput({ ...input, [name] : value})
     }
 
-    console.log(input);
-    
-
     return(
         <div className="register container">
             <h1>Register</h1>
@@ -63,14 +75,20 @@ const Register = () => {
                     <div className="row">
                         <img src={placeholder}></img>     
                     </div>
-                    <div className="row">
-                        {/* <button type="button" className="btn btn-info">Browse</button>   */}
+                    {/*<div className="row">
+                        <button type="button" className="btn btn-info">Browse</button>   
                         <div className="mb-3">
-                            <input className="form-control" type="file" accept=".png" id="profileImage"/>
+                            <input className="form-control" type="file" id="profileImage" onChange={handleInputChange}/>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <form className="flex-grow-1">
+                    <div className="row mb-3">
+                        <label htmlFor="inputFullname" className="col-md-3 col-form-label">url_image</label>
+                        <div className="col-md-8">
+                        <input type="text" name="url_photo" className="form-control" id="inputFullname" onChange={handleChange} value={input.url_photo}/>
+                        </div>
+                    </div>
                     <div className="row mb-3">
                         <label htmlFor="inputFullname" className="col-md-3 col-form-label">Fullname</label>
                         <div className="col-md-8">
