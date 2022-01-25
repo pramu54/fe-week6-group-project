@@ -24,36 +24,38 @@ function Cart() {
             .then((res) => {
                 console.log(res);
                 setProduct(res.data.data)
-                console.log(product)
             })
             .catch((err) => {
                 console.log(err)
             })
     }
-
+    
     let countPrc = 0;
     useEffect(() => {
+        if(product!==null){
         product.map((item: any) => {
             let subPrc = item.Product.price * item.quantity;
             countPrc += subPrc;
             setTotalProduct(countPrc)
-            setPrice(countPrc)
-        })
+        })}
+        setPrice(countPrc)
     }, [product])
 
     let countQty = 0;
     useEffect(() => {
+        if(product!==null){
         product.map((item: any) => {
             countQty += item.quantity;
             setTotalQty(countQty)
-            setQuantity(countQty)
-        })
+            
+        })}
+        setQuantity(countQty)
     }, [product])
 
     const increaseQtyHandle = (item:any) => {
         let inc = item.quantity + 1
         axios
-        .put(`cart/${item.id}`, {quantity: inc})
+        .put(`/cart/${item.id}`, {quantity: inc})
         .then((res) => {
             console.log(res);
             fetchData()
@@ -67,7 +69,7 @@ function Cart() {
         let dec = item.quantity - 1
         if(dec>=0){
             axios
-            .put(`cart/${item.id}`, {quantity: dec})
+            .put(`/cart/${item.id}`, {quantity: dec})
             .then((res) => {
                 console.log(res);
                 fetchData()
@@ -144,7 +146,7 @@ function Cart() {
                         </div>
                     </div>
                     <div className='col-md-8'>
-                        <div style={{height:"70vh"}}></div>
+                        <h1>You don't have any product on your cart</h1>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Header() {
@@ -6,12 +7,29 @@ function Header() {
     const burgerHandle = () => {
         setDropDown(!dropDown)}
     let navigate = useNavigate()
+    const [profile, setProfile] = useState<any>({});
 
     const logoutHandle = ()=>{
         localStorage.removeItem("loginToken")
         localStorage.removeItem("isAuthenticated")
         localStorage.removeItem("id")
         window.location.reload();
+    }
+
+    useEffect(()=>{
+        getData();
+    }, [])
+
+    const getData = async() => {
+        await axios
+        .get(`/users/${localStorage.getItem("id")}`)
+        .then((res)=>{
+            const { data } = res;
+            setProfile(data.data)
+        }).catch((err)=>{
+            console.log(err);
+        })
+        //.finally(()=> setIsReady(true));
     }
     
     if(localStorage.getItem("isAuthenticated") === "true"){
@@ -22,7 +40,9 @@ function Header() {
                     <nav>
                         <i onClick={()=>navigate("/store")} className="bi bi-shop  px-3" style={{ fontSize: "1.3em", color: "mediumturquoise" }} ></i>
                         <i onClick={()=>navigate("/cart")} className="bi bi-cart px-3" style={{ fontSize: "1.3em", color: "mediumturquoise" }}></i>
-                        <div onClick={()=>navigate("/profile")} className='profileRound mx-3'></div>
+                        <div onClick={()=>navigate("/profile")} className='profileRound mx-3'>
+                            <img src={profile.url_photo} className='w-100 h-100'></img>
+                        </div>
                         <div onClick={()=>logoutHandle()} className='pt-3 px-3' style={{ color: "mediumturquoise" }}><p>logout</p></div>
                     </nav>
                     <div onClick={() => burgerHandle()} className='burger'>

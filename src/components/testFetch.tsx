@@ -30,7 +30,7 @@ function Test() {
         axios
             .post("http://108.136.240.34:80/products", { 
                 "id_product_category": 2,
-    "name": "Samsung A8",
+    "name": "Simsang A8",
   "description": "HP samsung baru",
   "price": 10000,
   "quantity": 4,
@@ -48,12 +48,13 @@ function Test() {
     const loginHandle = ()=>{
         axios
             .post("http://108.136.240.34:80/login", { 
-                username: "sirclo023",
+                username: "sirclo025",
                 password: "sirclo123"
              })
             .then((res) => {
                 console.log(res.data);
                 localStorage.setItem('loginToken', res.data.token)
+                localStorage.setItem('id', res.data.user_id)
                 localStorage.setItem('isAuthenticated','true')
                 fetchData();
             })
@@ -71,7 +72,7 @@ function Test() {
         axios
             .post(" http://108.136.240.34:80/users", { 
                 name: "sircle",
-                username: "sircley",
+                username: "sircleys",
                 email: "example@sirclo.com",
                 password: "sircle123",
                 born_date: "12/12/1997",
@@ -113,6 +114,7 @@ function Test() {
     
      {data.map((item: any) => (
                         <HomeCard
+                            key={item.id}
                             image={item.url_photo}
                             title={item.name}
                             price={item.price} />
