@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function Detail() {
     const [detail, setDetail] = useState<any>([])
@@ -27,8 +27,8 @@ function Detail() {
             .post("/cart", {
                 id_product: detail.id,
                 quantity: 1
-              })
-              .then((res) => {
+            })
+            .then((res) => {
                 console.log(res);
                 alert("product added to cart")
             })
@@ -40,7 +40,7 @@ function Detail() {
     return (
         <div className="Detail container">
             <div className='row justify-content-center'>
-            <div style={{height:"20vh"}}></div>
+                <div style={{ height: "20vh" }}></div>
                 <div className='col-md-6 d-flex justify-content-end'>
                     <div className='imageHolder' style={{ width: "300px", height: "300px" }}>
                         <img src={detail.url_photo} className='w-100 h-100' style={{ borderRadius: "12px" }} />
@@ -53,7 +53,7 @@ function Detail() {
                 </div>
             </div>
             <div className=' mt-3 mb-5 d-flex justify-content-center'>
-                <button className='btn btn-success btn-lg' onClick={()=>addCartHandle()}>Add to Cart</button>
+                <button className='btn btn-success btn-lg' onClick={() => addCartHandle()}>Add to Cart</button>
             </div>
         </div>
     );

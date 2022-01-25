@@ -5,7 +5,7 @@ interface Props {
     title: string
     price: string
     edit: any
-    delete:any
+    delete: any
 }
 
 function StoreCard(props: Props) {
