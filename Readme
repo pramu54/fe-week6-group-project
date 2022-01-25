@@ -1,0 +1,42 @@
+Group 3 – “MISSCLO” Ecommerce Website Group Project
+
+MISSCLO STORE
+
+A simple E-Commerce Website where you can sell and buy product in one account.
+This site based on wireframes at Whimsical and prototype at Figma, built with React, JavaScript, CSS, Bootstrap, react-router-dom, and axios.
+The UI/UX of this website is responsive for desktop and mobile. This website was developed for one week.
+
+SITE FLOW
+
+This website has 2 major utility, sell a product and buy a product. 
+The flow of this website start with homepage where you can see all product at our site, details every product, and product by category.
+To using another feature you have to login first by click login at header. 
+If you haven’t an account yet you can register and fill your profile before login. You also can edit your profile after login.
+
+After you logged in at our site you can start to sell or buy a product. 
+To sell a product you have your own store page at our header, where you can start add your product. 
+To complete the adding process you have to fill the name, price, description, category, image, and quantity of your product. 
+After you finished it, your product is already at our site and everyone who have the account can order your product. 
+You also can edit or remove your product everytime you have an update about it.
+
+To buy a product at our site, you simply adding the product to your cart, you can see the details of product by clicking the product. 
+All of the product you add to your cart is will be available at your cart page at our header. 
+Our site will automatically count the total of quantity and price at your cart, and before order you can removing and set the quantity of the product you want to order.  
+If you sure want to buy all products at your cart you can click order button on fill the order form, you can cancel or order your cart, and can see the history of your order.
+
+TECHNOLOGY & SOFTWARE
+
+The technologies implemented in this project are React JS, JSX, React hooks such as UseState, UseEffect, and UseContext, CSS, Bootstrap and Bootstrap icon, 
+HTML, react-router-dom v6 such as UseNavigate, UseParams, Routes, Route, and BrowserRouter, and axios to fetching API. 
+
+The software to built this site is including Visual Studio Code, Whimsical, Figma, and Postman.
+
+
+
+To Visit Site:
+
+To See Prototype: https://www.figma.com/file/SenbWJf9LmIhEAfoYrmGb0/ECommerce-Group-Project?node-id=0%3A1 
+
+
+
+ 
