@@ -6,7 +6,7 @@ import HomeCard from '../components/HomeCard';
 function Home() {
     //DUMMY PRODUCT
     const [product, setProduct] = useState([])
-    const [category, setCategory] = useState<number[]>([1,2,3,4,5])
+    const [category, setCategory] = useState<number[]>([1, 2, 3, 4, 5])
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -25,13 +25,13 @@ function Home() {
             })
     }
 
-    const addCartHandle = (item:any) => {
+    const addCartHandle = (item: any) => {
         axios
             .post("/cart", {
                 id_product: item.id,
                 quantity: 1
-              })
-              .then((res) => {
+            })
+            .then((res) => {
                 console.log(res);
                 alert("product added to cart")
             })
@@ -41,28 +41,28 @@ function Home() {
     }
     return (
         <div className="Home">
-            <div style={{height:"10vh"}}></div>
+            <div style={{ height: "10vh" }}></div>
             <div className='Category'>
                 <div className='banner d-flex justify-content-evenly py-1' style={{ backgroundColor: "mediumturquoise", color: "white", fontSize: "smaller" }}>
-                    <p className='p-0 m-0' onClick={()=>setCategory([1,2,3,4,5])}>All Categories</p>
-                    <p className='p-0 m-0' onClick={()=>setCategory([1])}>Books</p>
-                    <p className='p-0 m-0' onClick={()=>setCategory([2])}>Computer</p>
-                    <p className='p-0 m-0' onClick={()=>setCategory([3])}>Kitchen</p>
-                    <p className='p-0 m-0' onClick={()=>setCategory([4])}>Gadget</p>
-                    <p className='p-0 m-0' onClick={()=>setCategory([5])}>Style</p>
+                    <p className='p-0 m-0' onClick={() => setCategory([1, 2, 3, 4, 5])}>All Categories</p>
+                    <p className='p-0 m-0' onClick={() => setCategory([1])}>Books</p>
+                    <p className='p-0 m-0' onClick={() => setCategory([2])}>Computer</p>
+                    <p className='p-0 m-0' onClick={() => setCategory([3])}>Kitchen</p>
+                    <p className='p-0 m-0' onClick={() => setCategory([4])}>Gadget</p>
+                    <p className='p-0 m-0' onClick={() => setCategory([5])}>Style</p>
                 </div>
             </div>
-            <div className='d-flex justify-content-center my-5' style={{fontFamily:"Georgia", color:"mediumturquoise"}}><h1>Welcome to MISSCLO</h1></div>
+            <div className='d-flex justify-content-center my-5' style={{ color: "mediumturquoise" }}><h1><span style={{ fontFamily: "Georgia" }}>Welcome to</span> MISSCLO</h1></div>
             <div className='container mt-5'>
                 <div className='Product row'>
-                {product.filter((prod:any)=> category.includes(prod.id_product_category)).map((item: any) => (
+                    {product.filter((prod: any) => category.includes(prod.id_product_category)).map((item: any) => (
                         <HomeCard
                             key={item.id}
                             image={item.url_photo}
                             title={item.name}
                             price={item.price}
-                            clickCard={()=>navigate(`/product/${item.id}`)}
-                            addCart={()=>addCartHandle(item)} />
+                            clickCard={() => navigate(`/product/${item.id}`)}
+                            addCart={() => addCartHandle(item)} />
                     ))}
                 </div>
             </div>

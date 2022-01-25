@@ -20,7 +20,7 @@ function Cart() {
 
     const fetchData = () => {
         axios
-            .get("/cart")
+            .get(`/cart`)
             .then((res) => {
                 console.log(res);
                 setProduct(res.data.data)
@@ -29,7 +29,7 @@ function Cart() {
                 console.log(err)
             })
     }
-    
+
     let countPrc = 0;
     useEffect(() => {
         if(product!==null){
@@ -52,24 +52,10 @@ function Cart() {
         setQuantity(countQty)
     }, [product])
 
-    const increaseQtyHandle = (item:any) => {
+    const increaseQtyHandle = (item: any) => {
         let inc = item.quantity + 1
         axios
-        .put(`/cart/${item.id}`, {quantity: inc})
-        .then((res) => {
-            console.log(res);
-            fetchData()
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }
-
-    const decreaseQtyHandle = (item:any) => {
-        let dec = item.quantity - 1
-        if(dec>=0){
-            axios
-            .put(`/cart/${item.id}`, {quantity: dec})
+            .put(`/cart/${item.id}`, { quantity: inc })
             .then((res) => {
                 console.log(res);
                 fetchData()
@@ -77,26 +63,40 @@ function Cart() {
             .catch((err) => {
                 console.log(err)
             })
-        }else{
-           dec=0;
+    }
+
+    const decreaseQtyHandle = (item: any) => {
+        let dec = item.quantity - 1
+        if (dec >= 0) {
+            axios
+                .put(`/cart/${item.id}`, { quantity: dec })
+                .then((res) => {
+                    console.log(res);
+                    fetchData()
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        } else {
+            dec = 0;
         }
     }
-    const deleteHandle=(item:any)=>{
+    const deleteHandle = (item: any) => {
         axios
-        .delete(`/cart/${item.id}`)
-        .then((res)=>{
-            console.log(res)
-            fetchData()
-        })
-        .catch((err)=>{console.log(err)})
+            .delete(`/cart/${item.id}`)
+            .then((res) => {
+                console.log(res)
+                fetchData()
+            })
+            .catch((err) => { console.log(err) })
     }
-    if(product!==null){
+    if (product !== null) {
         return (
             <div className="Store container">
-                <div style={{height:"10vh"}}></div>
+                <div style={{ height: "10vh" }}></div>
                 <div className='d-flex justify-content-between p-5'>
                     <h2>My Cart</h2>
-                    <button className='btn btn-primary' onClick={()=>navigate("/history")}>See History</button>
+                    <button className='btn btn-primary' onClick={() => navigate("/history")}>See History</button>
                 </div>
                 <div className='row flex-row-reverse'>
                     <div className='container col-md-4 '>
@@ -106,7 +106,7 @@ function Cart() {
                             <p>{totalQty} item</p>
                             <p>Total Price</p>
                             <p>Rp.{totalProduct}</p>
-                            <button className='btn btn-success' onClick={()=>navigate("/order")}>Order</button>
+                            <button className='btn btn-success' onClick={() => navigate("/order")}>Order</button>
                         </div>
                     </div>
                     <div className='col-md-8'>
@@ -119,7 +119,7 @@ function Cart() {
                                 qty={item.quantity}
                                 increaseQty={() => increaseQtyHandle(item)}
                                 decreaseQty={() => decreaseQtyHandle(item)}
-                                delete={()=>deleteHandle(item)}
+                                delete={() => deleteHandle(item)}
                             />
                         ))}
                     </div>
@@ -129,10 +129,10 @@ function Cart() {
     } else {
         return (
             <div className="Store container">
-            <div style={{height:"10vh"}}></div>
+                <div style={{ height: "10vh" }}></div>
                 <div className='d-flex justify-content-between p-5'>
                     <h2>My Cart</h2>
-                    <button className='btn btn-primary' onClick={()=>navigate("/history")}>See History</button>
+                    <button className='btn btn-primary' onClick={() => navigate("/history")}>See History</button>
                 </div>
                 <div className='row flex-row-reverse'>
                     <div className='container col-md-4 '>
@@ -142,7 +142,7 @@ function Cart() {
                             <p>{totalQty} item</p>
                             <p>Total Price</p>
                             <p>Rp.{totalProduct}</p>
-                            <button className='btn btn-success' onClick={()=>navigate("/order")}>Order</button>
+                            <button className='btn btn-success' onClick={() => navigate("/order")}>Order</button>
                         </div>
                     </div>
                     <div className='col-md-8'>
@@ -152,7 +152,7 @@ function Cart() {
             </div>
         );
     }
-    
+
 }
 
 export default Cart;
