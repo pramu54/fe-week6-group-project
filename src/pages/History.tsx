@@ -1,33 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import HistoryCard from '../components/HistoryCard';
+import axios from 'axios'
 
 function History() {
     //DUMMY PRODUCT
     const [totalProduct, setTotalProduct] = useState<number>(0)
     const [totalQty, setTotalQty] = useState<number>(0)
     const [stat, setStat] = useState("DONE")
-    const [product, setProduct] = useState([
-        {
-            image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
-            title: 'Lazy Chair', price: 135000, Qty: 2, id: 1, status:"DONE"
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80',
-            title: 'Cool Cap', price: 82500, Qty: 1, id: 2, status:"CANCELLED"
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
-            title: 'Lazy Chair', price: 135000, Qty: 2, id: 3, status:"DONE"
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80',
-            title: 'Cool Cap', price: 82500, Qty: 1, id: 4, status:"DONE"
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
-            title: 'Lazy Chair', price: 135000, Qty: 2, id: 5, status:"CANCELLED"
-        },
-    ])
+    const [product, setProduct] = useState([])
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const fetchData = () => {
+        axios
+            .get("/order")
+            .then((res) => {
+                console.log(res);
+                setProduct(res.data.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
     let countPrc = 0;
     useEffect(() => {
         product.map((item: any) => {
@@ -66,11 +63,11 @@ function History() {
             <div className='row flex-row-reverse'>
                 {product.filter((prod:any)=> prod.status===stat).map((item: any) => (
                     <HistoryCard
-                        image={item.image}
-                        title={item.title}
-                        price={item.price}
-                        qty={item.Qty}
-                        date="16 Januari 2022"
+                        image={item.product.url_photo}
+                        title={item.product.name}
+                        price={item.product.price}
+                        qty={item.product.quantity}
+                        date={item.order_date}
                         stat={stat}
                     />
                 ))}

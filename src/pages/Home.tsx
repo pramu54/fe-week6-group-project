@@ -32,6 +32,7 @@ function Home() {
               })
               .then((res) => {
                 console.log(res);
+                alert("product added to cart")
             })
             .catch((err) => {
                 console.log(err)
