@@ -94,7 +94,7 @@ const Addproduct = () => {
                         <div className="row mb-3 mt-4">
                             <label htmlFor="producturl_photo" className="col-md-3 col-form-label">Url Image</label>
                             <div className="col-md-8">
-                            <input type="text" className="form-control" name="url_photo" id="producturl_photo" placeholder="Enter Product Name" onChange={handleChange} value={input.url_photo}/>
+                            <input type="text" className="form-control" name="url_photo" id="producturl_photo" placeholder="Enter Product Image" onChange={handleChange} value={input.url_photo}/>
                             </div>
                         </div>
                         <div className="row mb-3 mt-4">
