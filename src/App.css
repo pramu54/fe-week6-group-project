@@ -5,14 +5,23 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+.App{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
 nav{
   display: none;
 }
 .profileRound{
   border-radius: 50%;
-  background-color:oldlace;
   height:2em;
   width:2em;
+}
+.profileRound img{
+  border-radius: 50%;
+  border:none;
 }
 .burger{
   display: flex;

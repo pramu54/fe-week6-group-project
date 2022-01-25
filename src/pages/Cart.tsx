@@ -140,7 +140,6 @@ function Cart() {
                     </div>
                     <div className='col-md-8'>
                         <h1>You don't have any product on your cart</h1>
-                        <div style={{height:"70vh"}}></div>
                     </div>
                 </div>
             </div>
