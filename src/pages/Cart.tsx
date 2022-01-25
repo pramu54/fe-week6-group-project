@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CartCard from '../components/CartCard';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { PriceContext } from '../context/priceContext';
+import { QuantityContext } from '../context/quantityContext';
 
 function Cart() {
     //DUMMY PRODUCT
+    const {quantity, setQuantity} = useContext(QuantityContext)
+    const {price, setPrice} = useContext(PriceContext);
     const [totalProduct, setTotalProduct] = useState<number>(0)
     const [totalQty, setTotalQty] = useState<number>(0)
     const [product, setProduct] = useState<any>([])
@@ -34,6 +38,7 @@ function Cart() {
             countPrc += subPrc;
             setTotalProduct(countPrc)
         })}
+        setPrice(countPrc)
     }, [product])
 
     let countQty = 0;
@@ -42,7 +47,9 @@ function Cart() {
         product.map((item: any) => {
             countQty += item.quantity;
             setTotalQty(countQty)
+            
         })}
+        setQuantity(countQty)
     }, [product])
 
     const increaseQtyHandle = (item:any) => {

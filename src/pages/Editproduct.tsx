@@ -10,7 +10,7 @@ const Editproduct = () => {
         description: "",
         price: "",
         quantity: "",
-        url_photo: "https://pbs.twimg.com/profile_images/1305491092918292485/q6p8QmUl_400x400.jpg"
+        url_photo: ""
     });
     const params= useParams()
     const navigate = useNavigate()
@@ -90,16 +90,22 @@ const Editproduct = () => {
                                 <img src={placeholder} className='w-100 h-100' style={{ borderRadius: "12px" }} />
                             </div>
                         </div>
-                        <div className="row">
+                        {/* <div className="row">
                             <div className="mb-3">
                                 <label htmlFor="productImage" className="form-label">Choose Product Image</label>
                                 <input className="form-control" type="file" id="productImage"/>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className='col-md-6'>
                     <form>
+                        <div className="row mb-3 mt-4">
+                            <label htmlFor="producturl_photo" className="col-md-3 col-form-label">Url Image</label>
+                            <div className="col-md-8">
+                            <input type="text" className="form-control" name="url_photo" id="producturl_photo" placeholder="Enter Product Image" onChange={handleChange} value={input.url_photo}/>
+                            </div>
+                        </div>
                         <div className="row mb-3 mt-4">
                             <label htmlFor="productName" className="col-md-3 col-form-label">Name</label>
                             <div className="col-md-8">
