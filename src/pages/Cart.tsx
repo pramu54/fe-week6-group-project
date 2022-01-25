@@ -19,7 +19,7 @@ function Cart() {
             .get("/cart")
             .then((res) => {
                 console.log(res);
-                setProduct(res.data)
+                setProduct(res.data.data)
             })
             .catch((err) => {
                 console.log(err)
