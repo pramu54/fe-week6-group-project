@@ -31,46 +31,53 @@ const Order = () =>{
     }, [])
 
     const fetchData = () => {
+        let idCart:number[] = [];
+
         axios
             .get("/cart")
             .then((res) => {
                 const { data } = res;
                 console.log(data);
                 setCart(data.data);
+                for(let i:number = 0; i<data.data.length; i++){
+                    //console.log(data.data[i].id);
+                    idCart.push(data.data[i].id);
+                }
+                setCartId(idCart)
             })
             .catch((err) => {
                 console.log(err)
             })
     }
     
-    // const onSubmit = () => {
-    //     //values.preventDefault()
+    const onSubmit = () => {
+        //values.preventDefault()
 
-    //     axios.post(`/order`,{
-    //         total_price: price,
-    //         id_cart: [cart.id],
-    //         email: input.email,
-    //         password: input.password,
-    //         born_date: input.born_date,
-    //         gender: input.gender,
-    //         url_photo: input.url_photo
-    //     }).then((e) => {
-    //         alert("Register Berhasil !")
-    //         console.log(e)
-    //         setInput({
-    //             name: "",
-    //             username: "",
-    //             email: "",
-    //             password: "",
-    //             born_date: "",
-    //             gender: "",
-    //             url_photo: ""
-    //         });
-    //         navigate("/login");
-    //     }).catch((e) => {
-    //         alert(e)
-    //     })
-    // };
+        axios.post(`/order`,{
+            id_cart: cartId,
+            total_price: price,
+            address_delivery: {
+                street: address.street,
+                city: address.city,
+                state: address.state,
+                zip: parseInt(address.zip)
+            },
+            credit_card: {
+                type: credit.type,
+                name: credit.card_name,
+                number: credit.card_number,
+                cvv: parseInt(credit.cvv_code),
+                month: parseInt(credit.expiration_month),
+                year: parseInt(credit.expiration_year)
+            }
+        }).then((e) => {
+            alert("Order Berhasil !")
+            console.log(e)
+            //navigate("/login");
+        }).catch((e) => {
+            alert(e)
+        })
+    };
 
     const handleChange = (e: any) => {
         let value = e.target.value
@@ -139,7 +146,7 @@ const Order = () =>{
                                 <input className="form-control" type="number" placeholder="Month" aria-label="default input example" name="expiration_month" onChange={handleChange} value={credit.expiration_month}/>
                             </div>
                             <div className="col-md-3">
-                                <input className="form-control" type="number" placeholder="Year" aria-label="default input example" name="expiration_year" onChange={handleChange} value={credit.expiration_month}/>
+                                <input className="form-control" type="number" placeholder="Year" aria-label="default input example" name="expiration_year" onChange={handleChange} value={credit.expiration_year}/>
                             </div>
                         </div>
                     </div>
@@ -187,8 +194,8 @@ const Order = () =>{
             </div>
             <div className="row mx-5">
                 <div className="d-flex justify-content-between">
-                    <button type="button" className="btn btn-outline-info">Cancel</button>
-                    <button type="button" className="btn btn-info">Purchase</button>
+                    <button type="button" className="btn btn-outline-info" onClick={e=>navigate("/cart")}>Cancel</button>
+                    <button type="button" className="btn btn-info" onClick={onSubmit}>Purchase</button>
                 </div>
             </div>
         </div>
